@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Money Quest Somerset</title>
+  <meta name="description" content="A playful home-education programme that teaches maths through money for children aged 9 to 18 in Somerset.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23F2B632' stroke='%231B2A41' stroke-width='4'/%3E%3Ctext x='32' y='43' font-size='32' text-anchor='middle' font-family='Arial' font-weight='700' fill='%231B2A41'%3E£%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top"><span class="brand-coin" aria-hidden="true">£</span> Money Quest</a>
+      <nav aria-label="Main">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+        <ul id="nav-list">
+          <li><a href="#week">A week</a></li>
+          <li><a href="#quests">Quests</a></li>
+          <li><a href="#missions">Missions</a></li>
+          <li><a href="#tools">Maths tools</a></li>
+          <li><a href="#somerset">Somerset trips</a></li>
+          <li><a href="#earn">Earning</a></li>
+          <li><a href="#passport">Passport</a></li>
+          <li><a href="#parents">Parents</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1>Money Quest Somerset</h1>
+          <p class="lede">Learn maths with real money. Each week you learn one money idea, practise the sums behind it, then go out and use it in Somerset.</p>
+
+          <div class="profile-bar" aria-label="Who is learning">
+            <label for="profile-select">Learner</label>
+            <select id="profile-select"></select>
+            <button class="btn ghost" id="add-profile">Add a learner</button>
+          </div>
+
+          <fieldset class="band-picker">
+            <legend>Your level</legend>
+            <div class="band-options" id="band-options"></div>
+          </fieldset>
+        </div>
+
+        <div class="mentor-stage" aria-live="polite">
+          <div class="bubble" id="mentor-bubble"></div>
+          <div class="mentor-big" id="mentor-big" aria-hidden="true"></div>
+          <p class="mentor-name" id="mentor-name"></p>
+          <p class="mentor-role" id="mentor-role"></p>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <h2 class="picker-title">Choose your mentor</h2>
+        <p class="picker-note">You can swap mentor any time. Your badges and passport stay with you.</p>
+        <div class="mentor-picker" id="mentor-picker" role="radiogroup" aria-label="Choose your mentor"></div>
+      </div>
+
+      <svg class="tor" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 160 L0 120 C180 110 320 128 480 112 C560 104 600 70 660 44 L660 22 L676 22 L676 40 C740 64 800 104 900 112 C1060 124 1240 104 1440 116 L1440 160 Z" />
+      </svg>
+    </section>
+
+    <!-- WEEK -->
+    <section class="section" id="week">
+      <div class="wrap">
+        <h2>How a week works</h2>
+        <p class="section-lede">About 3 to 4 hours a week. Brothers and sisters share the same theme at their own level, so briefings, games and trips can be done together.</p>
+        <ol class="week-strip">
+          <li><span class="day">Monday</span><strong>Mission briefing</strong><span>Your mentor tells you the idea and a story.</span><span class="mins">20 min</span></li>
+          <li><span class="day">Tuesday</span><strong>Maths workshop</strong><span>Worked examples and puzzles at your level.</span><span class="mins">45 min</span></li>
+          <li><span class="day">Wednesday</span><strong>Game day</strong><span>A board game, role-play shop or market simulation.</span><span class="mins">40 min</span></li>
+          <li class="hl"><span class="day">Thu to Sat</span><strong>Real-world mission</strong><span>Your weekly homework, done out in the world.</span><span class="mins">60–90 min</span></li>
+          <li><span class="day">Sunday</span><strong>Debrief</strong><span>Fill in your passport, get mentor feedback, check badges.</span><span class="mins">20 min</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- QUESTS -->
+    <section class="section alt" id="quests">
+      <div class="wrap">
+        <h2>The year: six quests</h2>
+        <p class="section-lede">One quest per half-term. Weeks 1 to 5 build the skills; week 6 is the Boss Challenge, a real project that uses everything. Pick a quest to see inside.</p>
+        <ol class="quest-path" id="quest-path"></ol>
+        <div class="quest-detail" id="quest-detail" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- MISSIONS -->
+    <section class="section" id="missions">
+      <div class="wrap">
+        <h2>Sample missions</h2>
+        <p class="section-lede">Three full weeks to show the pattern. The maths changes with your level; the briefing changes with your mentor.</p>
+        <div class="tabs" role="tablist" id="mission-tabs" aria-label="Sample missions"></div>
+        <article class="mission" id="mission-panel" role="tabpanel"></article>
+      </div>
+    </section>
+
+    <!-- TOOLS -->
+    <section class="section alt" id="tools">
+      <div class="wrap">
+        <h2>Maths tools</h2>
+        <p class="section-lede">Use these during missions. Do the sum on paper first, then check it here.</p>
+
+        <div class="tools-grid">
+          <form class="tool" id="unit-tool" onsubmit="return false">
+            <h3>Which is the better deal?</h3>
+            <p class="tool-note">Compare two packs by price per unit (per item, per 100 g, per litre).</p>
+            <div class="pair">
+              <fieldset>
+                <legend>Pack A</legend>
+                <label>Price (£) <input type="number" step="0.01" min="0" id="ua-price" value="1.80"></label>
+                <label>Amount <input type="number" step="any" min="0" id="ua-qty" value="6"></label>
+              </fieldset>
+              <fieldset>
+                <legend>Pack B</legend>
+                <label>Price (£) <input type="number" step="0.01" min="0" id="ub-price" value="2.50"></label>
+                <label>Amount <input type="number" step="any" min="0" id="ub-qty" value="10"></label>
+              </fieldset>
+            </div>
+            <output id="unit-out" class="tool-out"></output>
+          </form>
+
+          <form class="tool" id="grow-tool" onsubmit="return false">
+            <h3>Watch savings grow</h3>
+            <p class="tool-note">Compound interest, added monthly. Rates are examples, not real offers.</p>
+            <label>Starting amount (£) <input type="number" min="0" step="1" id="g-start" value="50"></label>
+            <label>Added each month (£) <input type="number" min="0" step="1" id="g-month" value="20"></label>
+            <label>Interest rate per year (%) <input type="number" min="0" max="30" step="0.1" id="g-rate" value="4"></label>
+            <label>Years <input type="range" min="1" max="40" id="g-years" value="10"> <span id="g-years-out">10</span></label>
+            <output id="grow-out" class="tool-out"></output>
+            <div class="growbar" aria-hidden="true"><span class="paid" id="g-bar-paid"></span><span class="interest" id="g-bar-int"></span></div>
+            <p class="key"><span class="sw paid"></span> money you put in <span class="sw interest"></span> interest earned</p>
+          </form>
+
+          <form class="tool" id="jars-tool" onsubmit="return false">
+            <h3>Four Jars splitter</h3>
+            <p class="tool-note">Split money into Spend, Save, Grow and Give. The four parts always add to 100%.</p>
+            <label>Money to split (£) <input type="number" min="0" step="0.01" id="j-amount" value="10"></label>
+            <div id="jar-sliders"></div>
+            <div class="jars" id="jars"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOMERSET -->
+    <section class="section" id="somerset">
+      <div class="wrap">
+        <h2>Somerset missions and trips</h2>
+        <p class="section-lede">One outing per quest, each with a job to do so the trip produces maths, not just a day out. Check opening times and market dates before you go.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Quest</th><th scope="col">Where</th><th scope="col">Your mission</th></tr></thead>
+            <tbody>
+              <tr><td>1. The Story of Money</td><td>Museum of Somerset, Taunton (home of the Frome Hoard of Roman coins)</td><td>Estimate the hoard's value in today's money. Make a timeline of money from barter to apps.</td></tr>
+              <tr><td>2. Smart Spending</td><td>A supermarket, then a farmers' market in Frome, Wells, Taunton or Glastonbury</td><td>Compare unit prices. Ask a stallholder how they set their prices.</td></tr>
+              <tr><td>3. Earning It</td><td>A Somerset farm shop, cheesemaker or cider farm</td><td>Find out how a product gets from field to shelf. Work out costs, margins and seasonal income.</td></tr>
+              <tr><td>3. Earning It</td><td>Clarks Village and the shoe-making story in Street</td><td>Learn how one family business grew. Compare outlet prices with high-street prices.</td></tr>
+              <tr><td>4. Growing It</td><td>Your bank or building society branch (book ahead)</td><td>Ask about savings accounts for young people. Compare rates at home.</td></tr>
+              <tr><td>5. Protecting It</td><td>Your local library or a Citizens Advice talk</td><td>Collect leaflets on scams and consumer rights. Build a scam-spotting checklist.</td></tr>
+              <tr><td>6. Giving and Building</td><td>A village fete, Christmas fair or Frome Independent market</td><td>Run or help on a stall. Track takings, costs, profit and the share you give away.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub">All-year missions</h3>
+        <ul class="cards4">
+          <li><strong>Family Treasurer</strong><span>Run one real family budget line, like the weekly fruit shop, for a month.</span></li>
+          <li><strong>Car-boot Captain</strong><span>Sell unwanted toys and books at a local car-boot sale twice a year.</span></li>
+          <li><strong>Local Economy Map</strong><span>Map the businesses in your town: what they sell and who they employ.</span></li>
+          <li><strong>Price Watch</strong><span>Track 5 everyday prices each month and work out your family's own inflation rate.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EARN -->
+    <section class="section alt" id="earn">
+      <div class="wrap">
+        <h2>Ways to earn money legally</h2>
+        <p class="section-lede">Money comes from six legal places: working, making, selling, services, saving and investing, and receiving gifts or prizes. Try at least three this year. Showing ideas for <strong id="earn-band-label"></strong>.</p>
+        <div class="earn-grid" id="earn-grid"></div>
+
+        <div class="rules">
+          <h3>UK rules for paid jobs</h3>
+          <p>Children can usually start part-time work at 14, or 13 in some council areas. Home-educated children of school age follow the same rules.</p>
+          <ul>
+            <li>You may need a work permit from the council. Contact Somerset Council's education welfare service before starting any job.</li>
+            <li>No work in school hours, before 7am or after 7pm, or in factories and industrial sites.</li>
+            <li>Term time: up to 12 hours a week, including up to 2 hours on school days and Sundays. Saturdays: up to 5 hours at 14, 8 hours at 15–16.</li>
+            <li>School holidays: up to 25 hours a week at 14 and 35 hours at 15–16, with a 2-week break from work each year.</li>
+            <li>No National Minimum Wage until you are past school-leaving age. From 16, young-person rates apply.</li>
+          </ul>
+          <p class="source">Source: <a href="https://www.gov.uk/child-employment/restrictions-on-child-employment">GOV.UK, Restrictions on child employment</a>. Rules and tax figures change, so always check GOV.UK.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PASSPORT -->
+    <section class="section" id="passport">
+      <div class="wrap">
+        <h2>Your Money Passport</h2>
+        <p class="section-lede">Tick off each week when your passport page is done: the mission, the maths, your evidence and three lines on what you learned. Progress is saved in this browser for <strong class="who-name"></strong>.</p>
+        <div class="passport-head">
+          <p class="progress-text" id="progress-text"></p>
+          <div class="progress" aria-hidden="true"><span id="progress-fill"></span></div>
+        </div>
+        <ol class="weeks" id="weeks"></ol>
+
+        <h3 class="sub">Badges</h3>
+        <p class="tool-note">Tap a badge when you have earned it. Six badges ranks you up.</p>
+        <ul class="badges" id="badges"></ul>
+        <p class="rank" id="rank-text"></p>
+      </div>
+    </section>
+
+    <!-- PARENTS -->
+    <section class="section alt" id="parents">
+      <div class="wrap">
+        <h2>For parents: Mission Control</h2>
+        <p class="section-lede">You voice the mentors, approve any mission with real money, and keep things safe. The children do the thinking.</p>
+        <div class="parents-grid">
+          <div>
+            <h3>Getting started</h3>
+            <ul class="checks" id="setup-list"></ul>
+          </div>
+          <div>
+            <h3>Safety rules</h3>
+            <ul class="plain">
+              <li>An adult is present for any selling, door-to-door service or meeting customers.</li>
+              <li>No online selling or payment apps without a parent-controlled account. Children never share bank or personal details.</li>
+              <li>Real investing only through a Junior ISA or a parent-held account. Anything riskier uses a pretend portfolio.</li>
+              <li>Talk about scams before any online mission, and use Agent Ava's checklist every time.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Free resources</h3>
+            <ul class="plain">
+              <li><a href="https://www.moneyhelper.org.uk">MoneyHelper</a>: budgeting, saving and pensions guidance</li>
+              <li><a href="https://www.young-enterprise.org.uk">Young Enterprise</a>: money lessons and enterprise challenges</li>
+              <li><a href="https://www.bankofengland.co.uk/education">Bank of England education</a>: money, inflation and interest</li>
+              <li><a href="https://www.gov.uk/child-employment">GOV.UK child employment</a>: work rules by age</li>
+              <li>Board games: Monopoly, The Game of Life, Sushi Go</li>
+            </ul>
+          </div>
+        </div>
+        <p class="source">The Money Passport also works as a record of learning if your local authority asks how home education is going.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Money Quest Somerset. A home-education programme for ages 9 to 18. Progress is stored only in this browser; nothing is sent anywhere.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

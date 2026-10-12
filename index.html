@@ -5,27 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Money Quest Somerset</title>
   <meta name="description" content="A playful home-education programme that teaches maths through money for children aged 9 to 18 in Somerset.">
+  <meta name="theme-color" content="#14213D">
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@1,9..144,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23F2B632' stroke='%231B2A41' stroke-width='4'/%3E%3Ctext x='32' y='43' font-size='32' text-anchor='middle' font-family='Arial' font-weight='700' fill='%231B2A41'%3E£%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23F4B23E' stroke='%2314213D' stroke-width='4'/%3E%3Ctext x='32' y='43' font-size='32' text-anchor='middle' font-family='Arial' font-weight='700' fill='%2314213D'%3E£%3C/text%3E%3C/svg%3E">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+  <canvas id="confetti" aria-hidden="true"></canvas>
 
-  <header class="topbar">
+  <header class="topbar" id="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="#top"><span class="brand-coin" aria-hidden="true">£</span> Money Quest</a>
       <nav aria-label="Main">
         <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
         <ul id="nav-list">
-          <li><a href="#week">A week</a></li>
+          <li><a href="#mentors">Mentors</a></li>
+          <li><a href="#time">Time machine</a></li>
+          <li><a href="#how">How money works</a></li>
+          <li><a href="#barter">Barter game</a></li>
+          <li><a href="#trading">Trading post</a></li>
           <li><a href="#quests">Quests</a></li>
-          <li><a href="#missions">Missions</a></li>
-          <li><a href="#tools">Maths tools</a></li>
-          <li><a href="#somerset">Somerset trips</a></li>
-          <li><a href="#earn">Earning</a></li>
+          <li><a href="#tools">Tools</a></li>
           <li><a href="#passport">Passport</a></li>
           <li><a href="#parents">Parents</a></li>
         </ul>
@@ -34,87 +38,281 @@
   </header>
 
   <main id="main">
-    <!-- HERO -->
+    <!-- ================= HERO ================= -->
     <section class="hero" id="top">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <h1>Money Quest Somerset</h1>
-          <p class="lede">Learn maths with real money. Each week you learn one money idea, practise the sums behind it, then go out and use it in Somerset.</p>
-
-          <div class="profile-bar" aria-label="Who is learning">
-            <label for="profile-select">Learner</label>
-            <select id="profile-select"></select>
-            <button class="btn ghost" id="add-profile">Add a learner</button>
-          </div>
-
-          <fieldset class="band-picker">
-            <legend>Your level</legend>
-            <div class="band-options" id="band-options"></div>
-          </fieldset>
-        </div>
-
-        <div class="mentor-stage" aria-live="polite">
-          <div class="bubble" id="mentor-bubble"></div>
-          <div class="mentor-big" id="mentor-big" aria-hidden="true"></div>
-          <p class="mentor-name" id="mentor-name"></p>
-          <p class="mentor-role" id="mentor-role"></p>
-        </div>
-      </div>
-
-      <div class="wrap">
-        <h2 class="picker-title">Choose your mentor</h2>
-        <p class="picker-note">You can swap mentor any time. Your badges and passport stay with you.</p>
-        <div class="mentor-picker" id="mentor-picker" role="radiogroup" aria-label="Choose your mentor"></div>
-      </div>
-
-      <svg class="tor" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 160 L0 120 C180 110 320 128 480 112 C560 104 600 70 660 44 L660 22 L676 22 L676 40 C740 64 800 104 900 112 C1060 124 1240 104 1440 116 L1440 160 Z" />
+      <svg class="scene" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#7CC6E8"/><stop offset=".62" stop-color="#C9E9F2"/><stop offset="1" stop-color="#FFF1CF"/>
+          </linearGradient>
+          <radialGradient id="sunglow" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#FFE7A3" stop-opacity=".9"/><stop offset="1" stop-color="#FFE7A3" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="1440" height="640" fill="url(#sky)"/>
+        <g data-depth="0.35">
+          <circle cx="1150" cy="150" r="170" fill="url(#sunglow)"/>
+          <g class="rays" style="transform-origin:1150px 150px">
+            <path d="M1150 20v40M1150 240v40M1020 150h40M1240 150h40M1058 58l28 28M1214 214l28 28M1242 58l-28 28M1086 214l-28 28" stroke="#F4B23E" stroke-width="8" stroke-linecap="round"/>
+          </g>
+          <circle cx="1150" cy="150" r="64" fill="#F8C24F" stroke="#E7A422" stroke-width="6"/>
+          <text x="1150" y="176" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="74" fill="#E7A422">£</text>
+        </g>
+        <g class="cloud c1"><ellipse cx="200" cy="120" rx="70" ry="26" fill="#fff"/><ellipse cx="250" cy="100" rx="50" ry="32" fill="#fff"/><ellipse cx="160" cy="105" rx="38" ry="24" fill="#fff"/></g>
+        <g class="cloud c2"><ellipse cx="760" cy="80" rx="60" ry="20" fill="#fff" opacity=".9"/><ellipse cx="800" cy="64" rx="40" ry="26" fill="#fff" opacity=".9"/></g>
+        <g class="cloud c3"><ellipse cx="520" cy="200" rx="46" ry="16" fill="#fff" opacity=".75"/><ellipse cx="550" cy="188" rx="30" ry="18" fill="#fff" opacity=".75"/></g>
+        <g data-depth="0.22">
+          <path d="M0 470 C160 420 300 440 420 410 C560 380 640 430 760 420 C900 408 1040 360 1180 390 C1300 414 1380 400 1440 392 L1440 640 L0 640Z" fill="#A7D3A6"/>
+        </g>
+        <g data-depth="0.14">
+          <path d="M520 520 C600 500 640 420 700 352 C712 338 728 338 740 352 C800 420 840 500 940 522 Z" fill="#6DAE76"/>
+          <path d="M700 352 C690 380 710 420 700 460" stroke="#5E9C67" stroke-width="5" fill="none"/>
+          <rect x="709" y="300" width="22" height="56" fill="#55705E"/><path d="M706 302 L720 284 L734 302Z" fill="#55705E"/>
+          <rect x="716" y="314" width="8" height="12" rx="4" fill="#2C3B33"/>
+        </g>
+        <g data-depth="0.07">
+          <path d="M0 530 C200 490 360 520 520 506 C700 490 820 520 1000 500 C1180 482 1320 506 1440 496 L1440 640 L0 640Z" fill="#4E9A60"/>
+          <g fill="#3B8150"><circle cx="160" cy="492" r="22"/><circle cx="186" cy="484" r="18"/><rect x="166" y="496" width="10" height="34" fill="#5B4636"/></g>
+          <g fill="#3B8150"><circle cx="1240" cy="478" r="24"/><circle cx="1268" cy="470" r="18"/><rect x="1248" y="484" width="10" height="34" fill="#5B4636"/></g>
+        </g>
+        <g>
+          <path d="M0 576 C240 552 480 574 720 562 C960 550 1200 574 1440 560 L1440 640 L0 640Z" fill="#2F7F4A"/>
+          <path class="rhyne" d="M0 600 C300 588 600 608 900 596 C1100 588 1300 600 1440 594" stroke="#8ED0E8" stroke-width="5" fill="none" opacity=".7"/>
+          <path class="rhyne r2" d="M0 622 C320 612 640 630 960 618 C1160 612 1320 622 1440 616" stroke="#8ED0E8" stroke-width="4" fill="none" opacity=".5"/>
+        </g>
       </svg>
+      <div class="float-coins" id="float-coins" aria-hidden="true"></div>
+
+      <div class="wrap hero-content">
+        <p class="hero-tag reveal">A home-education adventure for ages 9 to 18</p>
+        <h1 class="reveal"><span class="h1-line">M<span class="title-coin" aria-hidden="true"><span>£</span></span><span class="sr">o</span>ney</span> <span class="h1-line">Quest</span></h1>
+        <p class="h1-sub reveal">Somerset</p>
+        <p class="lede reveal">Learn maths with real money. Travel 3,000 years through the history of money, out-trade your brothers and sisters, run a market stall, and find out how to make money grow.</p>
+        <div class="hero-cta reveal">
+          <a class="btn gold big" href="#mentors">Choose your mentor</a>
+          <a class="btn ghost light big" href="#time">Start the time machine</a>
+        </div>
+      </div>
     </section>
 
-    <!-- WEEK -->
-    <section class="section" id="week">
+    <!-- ================= MENTORS ================= -->
+    <section class="section mentors" id="mentors">
       <div class="wrap">
-        <h2>How a week works</h2>
-        <p class="section-lede">About 3 to 4 hours a week. Brothers and sisters share the same theme at their own level, so briefings, games and trips can be done together.</p>
+        <div class="mentor-grid">
+          <div class="mentor-stage reveal" aria-live="polite">
+            <div class="bubble"><p id="mentor-bubble-text"></p></div>
+            <div class="mentor-big" id="mentor-big" aria-hidden="true"></div>
+            <p class="mentor-name" id="mentor-name"></p>
+            <p class="mentor-role" id="mentor-role"></p>
+            <dl class="mentor-facts">
+              <div><dt>Superpower</dt><dd id="mentor-power"></dd></div>
+              <div><dt>Catchphrase</dt><dd id="mentor-catch"></dd></div>
+            </dl>
+          </div>
+          <div class="mentor-side">
+            <h2 class="reveal">Meet your mentor</h2>
+            <p class="section-lede reveal">Every learner picks a guide. Your mentor briefs your missions, cheers you on and tells the stories. Swap whenever you like; your badges and passport stay with you.</p>
+
+            <div class="profile-bar reveal" aria-label="Who is learning">
+              <label for="profile-select">Learner</label>
+              <select id="profile-select"></select>
+              <button class="btn ghost" id="add-profile">Add a learner</button>
+            </div>
+            <fieldset class="band-picker reveal">
+              <legend>Your level</legend>
+              <div class="band-options" id="band-options"></div>
+            </fieldset>
+
+            <div class="mentor-picker" id="mentor-picker" role="radiogroup" aria-label="Choose your mentor"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TIME MACHINE ================= -->
+    <section class="section dark time" id="time">
+      <div class="stars" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="time-head">
+          <div>
+            <h2 class="reveal">The Money Time Machine</h2>
+            <p class="section-lede reveal">From swapping eggs for wool to money you might pay with your face. Thirteen stops, from long ago to the future you'll help invent. Every stop has a Somerset link and something to try.</p>
+          </div>
+          <div class="time-controls reveal">
+            <button type="button" class="round-btn" id="era-prev" aria-label="Previous stop">‹</button>
+            <button type="button" class="btn gold" id="era-play" aria-pressed="false">Travel through time</button>
+            <button type="button" class="round-btn" id="era-next" aria-label="Next stop">›</button>
+          </div>
+        </div>
+        <div class="era-rail reveal">
+          <div class="era-line"><span id="era-fill"></span></div>
+          <ol class="era-track" id="era-track"></ol>
+        </div>
+        <article class="era-panel" id="era-panel" aria-live="polite"></article>
+      </div>
+    </section>
+
+    <!-- ================= HOW MONEY WORKS ================= -->
+    <section class="section" id="how">
+      <div class="wrap">
+        <h2 class="reveal">How money really works</h2>
+        <p class="section-lede reveal">Money is a human invention, and it has three big jobs. Tap each card to find out what it does.</p>
+        <ul class="jobs reveal" id="jobs"></ul>
+
+        <div class="flow-wrap">
+          <h3 class="reveal">Where does money come from?</h3>
+          <p class="section-lede reveal">Not a money tree, and mostly not a printing press either.</p>
+          <ol class="flow">
+            <li class="reveal"><span class="flow-n">1</span><h4>Coins and notes</h4><p>The Royal Mint makes coins. The Bank of England makes banknotes. But cash is only a small slice of all the money in the UK.</p></li>
+            <li class="reveal"><span class="flow-n">2</span><h4>Banks create money by lending</h4><p>When a bank lends someone money for a house or a business, it types new money into their account. The Bank of England explains it this way too. Most money is created like this.</p></li>
+            <li class="reveal"><span class="flow-n">3</span><h4>Repaying makes it disappear</h4><p>When the loan is paid back, that money vanishes from the system. Money is constantly being created and destroyed.</p></li>
+            <li class="reveal"><span class="flow-n">4</span><h4>Someone keeps watch</h4><p>The Bank of England sets the main interest rate to stop prices rising too fast. Its target is for prices to rise about 2% a year.</p></li>
+          </ol>
+        </div>
+
+        <form class="infl reveal" id="infl-tool" onsubmit="return false">
+          <div class="infl-copy">
+            <h3>The Shrinking Basket</h3>
+            <p>Prices usually creep up every year. That's called <b>inflation</b>. It means money hidden under the bed slowly buys less. Move the slider and watch the basket empty.</p>
+            <div class="infl-inputs">
+              <label>Money today (£) <input type="number" min="0" step="1" id="i-amount" value="10"></label>
+              <label>Prices rise each year (%) <input type="number" min="0" max="20" step="0.5" id="i-rate" value="3"></label>
+            </div>
+            <label class="slider-label">Years in the future <input type="range" min="1" max="50" id="i-years" value="20"> <span id="i-years-out">20</span></label>
+            <p class="tool-note">An example, not a forecast. Real inflation changes from year to year.</p>
+          </div>
+          <div class="infl-out">
+            <p class="infl-big"><span id="i-result">£0.00</span><small>of today's buying power</small></p>
+            <div class="basket" id="basket" aria-hidden="true"></div>
+            <p id="i-sentence" class="infl-sentence"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= BARTER GAME ================= -->
+    <section class="section alt" id="barter">
+      <div class="wrap">
+        <div class="game-head">
+          <div>
+            <h2 class="reveal">The Village Swap</h2>
+            <p class="section-lede reveal">It's market day in a Somerset village, long before money. You have a basket of apples. You want a book. Nobody takes apples for a book. Can you trade your way there?</p>
+          </div>
+          <p class="game-mode reveal" id="game-mode">Round 1: barter only</p>
+        </div>
+        <div class="game reveal">
+          <aside class="game-side">
+            <h3>Your basket</h3>
+            <div class="inv" id="game-have"></div>
+            <p class="goal"><b>Goal:</b> get the book</p>
+            <div class="game-stats" id="game-stats"></div>
+            <ul class="game-log" id="game-log" aria-live="polite"></ul>
+            <button type="button" class="link-btn" id="game-restart">Start again</button>
+          </aside>
+          <ul class="villagers" id="villagers"></ul>
+        </div>
+        <div class="game-result" id="game-result" hidden aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ================= TRADING POST ================= -->
+    <section class="section" id="trading">
+      <div class="wrap">
+        <h2 class="reveal">The Family Trading Post</h2>
+        <p class="section-lede reveal">Brothers and sisters are natural traders: sweets for stickers, a turn on the console for washing up. Here you log real swaps, put a fair £ value on each side, and see who's trading wisely. This is how markets work.</p>
+
+        <div class="trade-grid">
+          <form class="trade-form reveal" id="trade-form" onsubmit="return false">
+            <h3>Log a trade</h3>
+            <div class="trade-row">
+              <label>Who traded <select id="t-from"></select></label>
+              <label>With <select id="t-to"></select></label>
+            </div>
+            <div class="trade-row">
+              <label>They gave <input type="text" id="t-gave" maxlength="60" placeholder="3 Pokémon cards"></label>
+              <label>Worth about (£) <input type="number" id="t-gave-v" min="0" step="0.01" placeholder="1.50"></label>
+            </div>
+            <div class="trade-row">
+              <label>They got <input type="text" id="t-got" maxlength="60" placeholder="A chocolate bar"></label>
+              <label>Worth about (£) <input type="number" id="t-got-v" min="0" step="0.01" placeholder="1.20"></label>
+            </div>
+            <div class="meter" aria-hidden="true">
+              <svg viewBox="0 0 200 110"><path d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="#E9EEF5" stroke-width="18"/><path d="M20 100 A80 80 0 0 1 64 33" fill="none" stroke="#E36A88" stroke-width="18"/><path d="M136 33 A80 80 0 0 1 180 100" fill="none" stroke="#E36A88" stroke-width="18"/><path d="M78 24 A80 80 0 0 1 122 24" fill="none" stroke="#3FA36B" stroke-width="18"/><g id="needle" class="needle"><path d="M100 100 L100 32" stroke="#14213D" stroke-width="5" stroke-linecap="round"/><circle cx="100" cy="100" r="9" fill="#14213D"/></g></svg>
+            </div>
+            <p class="fair-label" id="fair-label" aria-live="polite"></p>
+            <p class="t-error" id="t-error" aria-live="polite"></p>
+            <button type="button" class="btn big" id="t-add">Add to the ledger</button>
+          </form>
+
+          <div class="ledger-wrap reveal">
+            <div class="ledger-head"><h3>The ledger</h3><span class="count-chip"><span id="t-count">0</span> trades</span></div>
+            <ul class="ledger" id="ledger"></ul>
+            <h4 class="sub-small">Who's ahead?</h4>
+            <p class="tool-note">Total value gained or lost across all trades.</p>
+            <ul class="scores" id="t-scores"></ul>
+          </div>
+        </div>
+
+        <div class="rules-card reveal">
+          <h3>Golden rules of the Trading Post</h3>
+          <ol>
+            <li><b>Both say yes.</b> A trade only counts if both people agree, out loud, without pressure.</li>
+            <li><b>Value it first.</b> Before swapping, each person guesses the £ value of both sides. Check online or in a shop if you disagree.</li>
+            <li><b>24-hour cooling off.</b> Either trader can undo a swap within a day. After that it's final. Real shops have similar rules.</li>
+            <li><b>No trading shared things</b> or things that belong to parents.</li>
+            <li><b>Bigger trades need a contract.</b> Write it down, both sign it, a parent witnesses it.</li>
+          </ol>
+          <p class="tool-note">Older learners: try inventing a family currency, like Somerset Shillings, and see what happens to prices when you print too many.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WEEK ================= -->
+    <section class="section alt" id="week">
+      <div class="wrap">
+        <h2 class="reveal">How a week works</h2>
+        <p class="section-lede reveal">About 3 to 4 hours a week. Brothers and sisters share the same theme at their own level, so briefings, games and trips can be done together.</p>
         <ol class="week-strip">
-          <li><span class="day">Monday</span><strong>Mission briefing</strong><span>Your mentor tells you the idea and a story.</span><span class="mins">20 min</span></li>
-          <li><span class="day">Tuesday</span><strong>Maths workshop</strong><span>Worked examples and puzzles at your level.</span><span class="mins">45 min</span></li>
-          <li><span class="day">Wednesday</span><strong>Game day</strong><span>A board game, role-play shop or market simulation.</span><span class="mins">40 min</span></li>
-          <li class="hl"><span class="day">Thu to Sat</span><strong>Real-world mission</strong><span>Your weekly homework, done out in the world.</span><span class="mins">60–90 min</span></li>
-          <li><span class="day">Sunday</span><strong>Debrief</strong><span>Fill in your passport, get mentor feedback, check badges.</span><span class="mins">20 min</span></li>
+          <li class="reveal"><span class="day">Monday</span><strong>Mission briefing</strong><span>Your mentor tells you the idea and a story.</span><span class="mins">20 min</span></li>
+          <li class="reveal"><span class="day">Tuesday</span><strong>Maths workshop</strong><span>Worked examples and puzzles at your level.</span><span class="mins">45 min</span></li>
+          <li class="reveal"><span class="day">Wednesday</span><strong>Game day</strong><span>A board game, role-play shop or market simulation.</span><span class="mins">40 min</span></li>
+          <li class="reveal hl"><span class="day">Thu to Sat</span><strong>Real-world mission</strong><span>Your weekly homework, done out in the world.</span><span class="mins">60–90 min</span></li>
+          <li class="reveal"><span class="day">Sunday</span><strong>Debrief</strong><span>Fill in your passport, get mentor feedback, check badges.</span><span class="mins">20 min</span></li>
         </ol>
       </div>
     </section>
 
-    <!-- QUESTS -->
-    <section class="section alt" id="quests">
+    <!-- ================= QUESTS ================= -->
+    <section class="section" id="quests">
       <div class="wrap">
-        <h2>The year: six quests</h2>
-        <p class="section-lede">One quest per half-term. Weeks 1 to 5 build the skills; week 6 is the Boss Challenge, a real project that uses everything. Pick a quest to see inside.</p>
-        <ol class="quest-path" id="quest-path"></ol>
+        <h2 class="reveal">The year: six quests</h2>
+        <p class="section-lede reveal">One quest per half-term. Weeks 1 to 5 build the skills; week 6 is the Boss Challenge, a real project that uses everything. In years two and three the quests return with harder maths and bigger missions.</p>
+        <div class="quest-rail reveal">
+          <div class="quest-line"><span id="quest-fill"></span></div>
+          <ol class="quest-path" id="quest-path"></ol>
+        </div>
         <div class="quest-detail" id="quest-detail" aria-live="polite"></div>
       </div>
     </section>
 
-    <!-- MISSIONS -->
-    <section class="section" id="missions">
+    <!-- ================= MISSIONS ================= -->
+    <section class="section alt" id="missions">
       <div class="wrap">
-        <h2>Sample missions</h2>
-        <p class="section-lede">Three full weeks to show the pattern. The maths changes with your level; the briefing changes with your mentor.</p>
+        <h2 class="reveal">Sample missions</h2>
+        <p class="section-lede reveal">Three full weeks to show the pattern. The maths changes with your level; the briefing changes with your mentor.</p>
         <div class="tabs" role="tablist" id="mission-tabs" aria-label="Sample missions"></div>
-        <article class="mission" id="mission-panel" role="tabpanel"></article>
+        <article class="mission reveal" id="mission-panel" role="tabpanel"></article>
       </div>
     </section>
 
-    <!-- TOOLS -->
-    <section class="section alt" id="tools">
+    <!-- ================= TOOLS ================= -->
+    <section class="section" id="tools">
       <div class="wrap">
-        <h2>Maths tools</h2>
-        <p class="section-lede">Use these during missions. Do the sum on paper first, then check it here.</p>
+        <h2 class="reveal">Maths tools</h2>
+        <p class="section-lede reveal">Use these during missions. Do the sum on paper first, then check it here.</p>
 
         <div class="tools-grid">
-          <form class="tool" id="unit-tool" onsubmit="return false">
+          <form class="tool reveal" id="unit-tool" onsubmit="return false">
             <h3>Which is the better deal?</h3>
             <p class="tool-note">Compare two packs by price per unit (per item, per 100 g, per litre).</p>
             <div class="pair">
@@ -132,19 +330,19 @@
             <output id="unit-out" class="tool-out"></output>
           </form>
 
-          <form class="tool" id="grow-tool" onsubmit="return false">
+          <form class="tool reveal" id="grow-tool" onsubmit="return false">
             <h3>Watch savings grow</h3>
             <p class="tool-note">Compound interest, added monthly. Rates are examples, not real offers.</p>
             <label>Starting amount (£) <input type="number" min="0" step="1" id="g-start" value="50"></label>
             <label>Added each month (£) <input type="number" min="0" step="1" id="g-month" value="20"></label>
             <label>Interest rate per year (%) <input type="number" min="0" max="30" step="0.1" id="g-rate" value="4"></label>
-            <label>Years <input type="range" min="1" max="40" id="g-years" value="10"> <span id="g-years-out">10</span></label>
-            <output id="grow-out" class="tool-out"></output>
+            <label class="slider-label">Years <input type="range" min="1" max="40" id="g-years" value="10"> <span id="g-years-out">10</span></label>
+            <output class="tool-out"><strong id="g-total">£0.00</strong><span id="g-detail"></span></output>
             <div class="growbar" aria-hidden="true"><span class="paid" id="g-bar-paid"></span><span class="interest" id="g-bar-int"></span></div>
             <p class="key"><span class="sw paid"></span> money you put in <span class="sw interest"></span> interest earned</p>
           </form>
 
-          <form class="tool" id="jars-tool" onsubmit="return false">
+          <form class="tool reveal" id="jars-tool" onsubmit="return false">
             <h3>Four Jars splitter</h3>
             <p class="tool-note">Split money into Spend, Save, Grow and Give. The four parts always add to 100%.</p>
             <label>Money to split (£) <input type="number" min="0" step="0.01" id="j-amount" value="10"></label>
@@ -155,44 +353,39 @@
       </div>
     </section>
 
-    <!-- SOMERSET -->
-    <section class="section" id="somerset">
+    <!-- ================= SOMERSET ================= -->
+    <section class="section alt" id="somerset">
       <div class="wrap">
-        <h2>Somerset missions and trips</h2>
-        <p class="section-lede">One outing per quest, each with a job to do so the trip produces maths, not just a day out. Check opening times and market dates before you go.</p>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th scope="col">Quest</th><th scope="col">Where</th><th scope="col">Your mission</th></tr></thead>
-            <tbody>
-              <tr><td>1. The Story of Money</td><td>Museum of Somerset, Taunton (home of the Frome Hoard of Roman coins)</td><td>Estimate the hoard's value in today's money. Make a timeline of money from barter to apps.</td></tr>
-              <tr><td>2. Smart Spending</td><td>A supermarket, then a farmers' market in Frome, Wells, Taunton or Glastonbury</td><td>Compare unit prices. Ask a stallholder how they set their prices.</td></tr>
-              <tr><td>3. Earning It</td><td>A Somerset farm shop, cheesemaker or cider farm</td><td>Find out how a product gets from field to shelf. Work out costs, margins and seasonal income.</td></tr>
-              <tr><td>3. Earning It</td><td>Clarks Village and the shoe-making story in Street</td><td>Learn how one family business grew. Compare outlet prices with high-street prices.</td></tr>
-              <tr><td>4. Growing It</td><td>Your bank or building society branch (book ahead)</td><td>Ask about savings accounts for young people. Compare rates at home.</td></tr>
-              <tr><td>5. Protecting It</td><td>Your local library or a Citizens Advice talk</td><td>Collect leaflets on scams and consumer rights. Build a scam-spotting checklist.</td></tr>
-              <tr><td>6. Giving and Building</td><td>A village fete, Christmas fair or Frome Independent market</td><td>Run or help on a stall. Track takings, costs, profit and the share you give away.</td></tr>
-            </tbody>
-          </table>
-        </div>
+        <h2 class="reveal">Somerset missions and trips</h2>
+        <p class="section-lede reveal">One outing per quest, each with a job to do so the trip produces maths, not just a day out. Check opening times and market dates before you go.</p>
+        <ul class="trips">
+          <li class="reveal"><span class="trip-q">Quest 1</span><h3>Museum of Somerset, Taunton</h3><p class="trip-where">Home of the Frome Hoard of Roman coins</p><p>Estimate the hoard's value in today's money. Make a timeline of money from barter to apps.</p></li>
+          <li class="reveal"><span class="trip-q">Quest 2</span><h3>Supermarket, then a farmers' market</h3><p class="trip-where">Frome, Wells, Taunton or Glastonbury</p><p>Compare unit prices. Ask a stallholder how they set their prices.</p></li>
+          <li class="reveal"><span class="trip-q">Quest 3</span><h3>A farm shop, cheesemaker or orchard</h3><p class="trip-where">Anywhere across the county</p><p>Find out how a product gets from field to shelf. Work out costs, margins and seasonal income.</p></li>
+          <li class="reveal"><span class="trip-q">Quest 3</span><h3>Clarks Village, Street</h3><p class="trip-where">And the town's shoe-making story</p><p>Learn how one family business grew. Compare outlet prices with high-street prices.</p></li>
+          <li class="reveal"><span class="trip-q">Quest 4</span><h3>Your bank or building society</h3><p class="trip-where">Book an appointment ahead</p><p>Ask about savings accounts for young people. Compare rates at home.</p></li>
+          <li class="reveal"><span class="trip-q">Quest 5</span><h3>Library or Citizens Advice talk</h3><p class="trip-where">Your nearest branch</p><p>Collect leaflets on scams and consumer rights. Build a scam-spotting checklist.</p></li>
+          <li class="reveal"><span class="trip-q">Quest 6</span><h3>A village fete or Frome Independent</h3><p class="trip-where">Or a Christmas fair</p><p>Run or help on a stall. Track takings, costs, profit and the share you give away.</p></li>
+        </ul>
 
-        <h3 class="sub">All-year missions</h3>
+        <h3 class="sub reveal">All-year missions</h3>
         <ul class="cards4">
-          <li><strong>Family Treasurer</strong><span>Run one real family budget line, like the weekly fruit shop, for a month.</span></li>
-          <li><strong>Car-boot Captain</strong><span>Sell unwanted toys and books at a local car-boot sale twice a year.</span></li>
-          <li><strong>Local Economy Map</strong><span>Map the businesses in your town: what they sell and who they employ.</span></li>
-          <li><strong>Price Watch</strong><span>Track 5 everyday prices each month and work out your family's own inflation rate.</span></li>
+          <li class="reveal"><strong>Family Treasurer</strong><span>Run one real family budget line, like the weekly fruit shop, for a month.</span></li>
+          <li class="reveal"><strong>Car-boot Captain</strong><span>Sell unwanted toys and books at a local car-boot sale twice a year.</span></li>
+          <li class="reveal"><strong>Local Economy Map</strong><span>Map the businesses in your town: what they sell and who they employ.</span></li>
+          <li class="reveal"><strong>Price Watch</strong><span>Track 5 everyday prices each month and work out your family's own inflation rate.</span></li>
         </ul>
       </div>
     </section>
 
-    <!-- EARN -->
-    <section class="section alt" id="earn">
+    <!-- ================= EARN ================= -->
+    <section class="section" id="earn">
       <div class="wrap">
-        <h2>Ways to earn money legally</h2>
-        <p class="section-lede">Money comes from six legal places: working, making, selling, services, saving and investing, and receiving gifts or prizes. Try at least three this year. Showing ideas for <strong id="earn-band-label"></strong>.</p>
+        <h2 class="reveal">Ways to earn money legally</h2>
+        <p class="section-lede reveal">Money comes from six legal places: working, making, selling, services, saving and investing, and receiving gifts or prizes. Try at least three this year. Showing ideas for <strong id="earn-band-label"></strong>.</p>
         <div class="earn-grid" id="earn-grid"></div>
 
-        <div class="rules">
+        <div class="rules reveal">
           <h3>UK rules for paid jobs</h3>
           <p>Children can usually start part-time work at 14, or 13 in some council areas. Home-educated children of school age follow the same rules.</p>
           <ul>
@@ -207,35 +400,35 @@
       </div>
     </section>
 
-    <!-- PASSPORT -->
-    <section class="section" id="passport">
+    <!-- ================= PASSPORT ================= -->
+    <section class="section dark passport" id="passport">
       <div class="wrap">
-        <h2>Your Money Passport</h2>
-        <p class="section-lede">Tick off each week when your passport page is done: the mission, the maths, your evidence and three lines on what you learned. Progress is saved in this browser for <strong class="who-name"></strong>.</p>
-        <div class="passport-head">
+        <h2 class="reveal">Your Money Passport</h2>
+        <p class="section-lede reveal">Tick off each week when your passport page is done: the mission, the maths, your evidence and three lines on what you learned. Progress is saved in this browser for <strong class="who-name"></strong>.</p>
+        <div class="passport-head reveal">
           <p class="progress-text" id="progress-text"></p>
           <div class="progress" aria-hidden="true"><span id="progress-fill"></span></div>
         </div>
-        <ol class="weeks" id="weeks"></ol>
+        <ol class="weeks reveal" id="weeks"></ol>
 
-        <h3 class="sub">Badges</h3>
-        <p class="tool-note">Tap a badge when you have earned it. Six badges ranks you up.</p>
-        <ul class="badges" id="badges"></ul>
+        <h3 class="sub reveal">Badges</h3>
+        <p class="tool-note reveal">Tap a badge when you have earned it. Six badges ranks you up.</p>
+        <ul class="badges reveal" id="badges"></ul>
         <p class="rank" id="rank-text"></p>
       </div>
     </section>
 
-    <!-- PARENTS -->
-    <section class="section alt" id="parents">
+    <!-- ================= PARENTS ================= -->
+    <section class="section" id="parents">
       <div class="wrap">
-        <h2>For parents: Mission Control</h2>
-        <p class="section-lede">You voice the mentors, approve any mission with real money, and keep things safe. The children do the thinking.</p>
+        <h2 class="reveal">For parents: Mission Control</h2>
+        <p class="section-lede reveal">You voice the mentors, approve any mission with real money, and keep things safe. The children do the thinking.</p>
         <div class="parents-grid">
-          <div>
+          <div class="reveal">
             <h3>Getting started</h3>
             <ul class="checks" id="setup-list"></ul>
           </div>
-          <div>
+          <div class="reveal">
             <h3>Safety rules</h3>
             <ul class="plain">
               <li>An adult is present for any selling, door-to-door service or meeting customers.</li>
@@ -244,7 +437,7 @@
               <li>Talk about scams before any online mission, and use Agent Ava's checklist every time.</li>
             </ul>
           </div>
-          <div>
+          <div class="reveal">
             <h3>Free resources</h3>
             <ul class="plain">
               <li><a href="https://www.moneyhelper.org.uk">MoneyHelper</a>: budgeting, saving and pensions guidance</li>
@@ -255,14 +448,15 @@
             </ul>
           </div>
         </div>
-        <p class="source">The Money Passport also works as a record of learning if your local authority asks how home education is going.</p>
+        <p class="source">The Money Passport and Trading Post ledger also work as a record of learning if your local authority asks how home education is going.</p>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="wrap">
-      <p>Money Quest Somerset. A home-education programme for ages 9 to 18. Progress is stored only in this browser; nothing is sent anywhere.</p>
+    <div class="wrap footer-inner">
+      <p class="brand"><span class="brand-coin" aria-hidden="true">£</span> Money Quest Somerset</p>
+      <p>A home-education programme for ages 9 to 18. Progress is stored only in this browser; nothing is sent anywhere.</p>
     </div>
   </footer>
 
